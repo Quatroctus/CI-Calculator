@@ -15,7 +15,6 @@ jobs:
         name: install dependencies
         details: Installing the python3 dependencies.
         commands: |
-          pip install pipenv
           pipenv install -r requirements.txt
       - run:
         name: run tests
