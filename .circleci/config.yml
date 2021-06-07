@@ -1,0 +1,24 @@
+# config file
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7
+
+    working_directory: ~/repo
+
+    steps:
+      # Step 1 obtain repo from GitHub
+      - checkout
+      # Step 2: Create pipenv and install dependencies
+      - run:
+        name: install dependencies
+        commands: |
+          pip install pipenv
+          pipenv install -r requirements.txt
+      - run:
+        name: run tests
+        command: |
+          pipenv shell
+          flake8 --statistics
+          pytest -v --cov=calculator
