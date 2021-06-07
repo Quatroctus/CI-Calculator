@@ -13,11 +13,13 @@ jobs:
       # Step 2: Create pipenv and install dependencies
       - run:
         name: install dependencies
+        details: Installing the python3 dependencies.
         commands: |
           pip install pipenv
           pipenv install -r requirements.txt
       - run:
         name: run tests
+        details: Running pytest tests.
         command: |
           pipenv shell
           flake8 --statistics
