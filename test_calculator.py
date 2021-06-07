@@ -1,7 +1,7 @@
 """
 Tests for calculator.py
 """
-from calculator import *
+from calculator import add, subtract
 
 
 class TestCalculator:
